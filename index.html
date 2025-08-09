@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        accent: '#f472b6',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom hover effect for cards */
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50 animate-fade-in">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-extrabold text-primary tracking-tight">Portfolio</h1>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#home" class="text-sm font-medium hover:text-secondary transition-colors duration-200">Home</a>
+                    <a href="#about" class="text-sm font-medium hover:text-secondary transition-colors duration-200">About</a>
+                    <a href="#projects" class="text-sm font-medium hover:text-secondary transition-colors duration-200">Projects</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-secondary transition-colors duration-200">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path id="sun" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            <path id="moon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-secondary to-accent text-white relative overflow-hidden">
+        <div class="text-center animate-slide-up z-10">
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight">Hi, I'm [Your Name]</h1>
+            <p class="mt-4 text-xl md:text-2xl opacity-90">Building the future, one project at a time</p>
+            <a href="#projects" class="mt-6 inline-block px-8 py-3 bg-white text-primary font-semibold rounded-full hover:bg-secondary hover:text-white transition-all duration-300">Explore My Work</a>
+        </div>
+        <!-- Background decorative element -->
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 animate-pulse"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-fade-in">
+        <h2 class="text-4xl font-bold text-center mb-12 text-primary">About Me</h2>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 animate-slide-up">
+                <img src="https://via.placeholder.com/400" alt="Profile" class="rounded-2xl shadow-xl w-full max-w-md mx-auto">
+            </div>
+            <div class="md:w-1/2 animate-slide-up delay-100">
+                <p class="text-lg leading-relaxed">I'm a passionate innovator with expertise in web development, UI/UX, and modern tech stacks. My mission is to create impactful solutions that resonate. Excited to share my upcoming projects with you!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-primary animate-fade-in">My Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-gray-50 dark:bg-gray-700 rounded-2xl shadow-lg p-6 transition-all duration-300 animate-scale-in">
+                    <h3 class="text-xl font-semibold text-primary">Project One</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">A web app for seamless task management with a modern, intuitive interface.</p>
+                    <a href="#" class="mt-4 inline-block text-secondary font-medium hover:underline">View Details</a>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card bg-gray-50 dark:bg-gray-700 rounded-2xl shadow-lg p-6 transition-all duration-300 animate-scale-in delay-100">
+                    <h3 class="text-xl font-semibold text-primary">Project Two</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">An e-commerce platform with AI-driven recommendations and dynamic filtering.</p>
+                    <a href="#" class="mt-4 inline-block text-secondary font-medium hover:underline">View Details</a>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card bg-gray-50 dark:bg-gray-700 rounded-2xl shadow-lg p-6 transition-all duration-300 animate-scale-in delay-200">
+                    <h3 class="text-xl font-semibold text-primary">Project Three</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">A fitness tracking app with real-time analytics and personalized goals.</p>
+                    <a href="#" class="mt-4 inline-block text-secondary font-medium hover:underline">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-fade-in">
+        <h2 class="text-4xl font-bold text-center mb-12 text-primary">Let's Connect</h2>
+        <div class="max-w-lg mx-auto text-center">
+            <p class="text-lg leading-relaxed">Interested in collaborating or have a question? Reach out!</p>
+            <div class="mt-6 flex justify-center space-x-6">
+                <a href="mailto:your.email@example.com" class="text-secondary hover:text-accent transition-colors duration-200">Email</a>
+                <a href="https://github.com/yourusername" target="_blank" class="text-secondary hover:text-accent transition-colors duration-200">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-secondary hover:text-accent transition-colors duration-200">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
+            <p>&copy; 2025 Your Name. Crafted with passion.</p>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Script -->
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun');
+        const moonIcon = document.getElementById('moon');
+
+        toggleButton.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            sunIcon.classList.toggle('hidden');
+            moonIcon.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
